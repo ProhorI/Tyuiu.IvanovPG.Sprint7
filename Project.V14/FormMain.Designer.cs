@@ -1,6 +1,6 @@
 ﻿namespace Project.V14
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,29 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             groupBox1 = new GroupBox();
+            button4 = new Button();
             groupBox2 = new GroupBox();
-            groupBox3 = new GroupBox();
-            groupBox4 = new GroupBox();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            button4 = new Button();
+            groupBox3 = new GroupBox();
             button5 = new Button();
             button6 = new Button();
-            button7 = new Button();
+            groupBox4 = new GroupBox();
             button8 = new Button();
+            button7 = new Button();
             dataGridView1 = new DataGridView();
             привет = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
+            saveFileDialog_IPG = new SaveFileDialog();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
+            menuStrip1 = new MenuStrip();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -63,6 +73,16 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Поиск ";
             // 
+            // button4
+            // 
+            button4.BackgroundImage = (Image)resources.GetObject("button4.BackgroundImage");
+            button4.Location = new Point(381, 38);
+            button4.Name = "button4";
+            button4.Size = new Size(82, 84);
+            button4.TabIndex = 7;
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(button1);
@@ -74,28 +94,6 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Файл ";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(button5);
-            groupBox3.Controls.Add(button6);
-            groupBox3.Location = new Point(48, 584);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(485, 212);
-            groupBox3.TabIndex = 2;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Работа с маршрутами";
-            // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(button8);
-            groupBox4.Controls.Add(button7);
-            groupBox4.Location = new Point(48, 874);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(485, 200);
-            groupBox4.TabIndex = 3;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Руководство";
             // 
             // button1
             // 
@@ -124,15 +122,16 @@
             button3.TabIndex = 6;
             button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // groupBox3
             // 
-            button4.BackgroundImage = (Image)resources.GetObject("button4.BackgroundImage");
-            button4.Location = new Point(381, 38);
-            button4.Name = "button4";
-            button4.Size = new Size(82, 84);
-            button4.TabIndex = 7;
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            groupBox3.Controls.Add(button5);
+            groupBox3.Controls.Add(button6);
+            groupBox3.Location = new Point(48, 584);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(485, 212);
+            groupBox3.TabIndex = 2;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Работа с маршрутами";
             // 
             // button5
             // 
@@ -153,14 +152,16 @@
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
-            // button7
+            // groupBox4
             // 
-            button7.BackgroundImage = (Image)resources.GetObject("button7.BackgroundImage");
-            button7.Location = new Point(15, 38);
-            button7.Name = "button7";
-            button7.Size = new Size(140, 137);
-            button7.TabIndex = 10;
-            button7.UseVisualStyleBackColor = true;
+            groupBox4.Controls.Add(button8);
+            groupBox4.Controls.Add(button7);
+            groupBox4.Location = new Point(48, 874);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(485, 200);
+            groupBox4.TabIndex = 3;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Руководство";
             // 
             // button8
             // 
@@ -171,15 +172,25 @@
             button8.TabIndex = 11;
             button8.UseVisualStyleBackColor = true;
             // 
+            // button7
+            // 
+            button7.BackgroundImage = (Image)resources.GetObject("button7.BackgroundImage");
+            button7.Location = new Point(15, 38);
+            button7.Name = "button7";
+            button7.Size = new Size(140, 137);
+            button7.TabIndex = 10;
+            button7.UseVisualStyleBackColor = true;
+            // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { привет, Column2, Column3, Column1 });
-            dataGridView1.Location = new Point(570, 50);
+            dataGridView1.Location = new Point(3, 0);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(1367, 1086);
+            dataGridView1.Size = new Size(1217, 896);
             dataGridView1.TabIndex = 4;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -211,24 +222,86 @@
             Column1.Name = "Column1";
             Column1.Width = 200;
             // 
-            // Form1
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Location = new Point(685, 88);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1264, 972);
+            tabControl1.TabIndex = 6;
+            tabControl1.Tag = "";
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(dataGridView1);
+            tabPage1.Location = new Point(8, 46);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1248, 918);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Список маршрутов";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(8, 46);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1248, 918);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Избранные";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(160, 36);
+            toolStripMenuItem1.Text = "Программа";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(90, 36);
+            toolStripMenuItem2.Text = "Файл";
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(32, 32);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2 });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1949, 40);
+            menuStrip1.TabIndex = 7;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // FormMain
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1949, 1171);
-            Controls.Add(dataGridView1);
+            Controls.Add(tabControl1);
+            Controls.Add(menuStrip1);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Name = "Form1";
+            MainMenuStrip = menuStrip1;
+            Name = "FormMain";
             Text = "Транспортные маршруты ";
+            Load += FormMain_Load;
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -250,5 +323,12 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column1;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private SaveFileDialog saveFileDialog_IPG;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private MenuStrip menuStrip1;
     }
 }
