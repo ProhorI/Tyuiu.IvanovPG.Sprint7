@@ -123,6 +123,7 @@ namespace Project.V14
             {
                 File.Delete(path);
             }
+
             string str = "";
             for (int i = 0; i < rows; i++)
             {
@@ -220,55 +221,82 @@ namespace Project.V14
             txt.Start();
         }
 
-        private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void buttonOpenRoute_IPG_Click(object sender, EventArgs e)
         {
+            FormRoute formRoute = new FormRoute(items[rowFocusIndex]);
+            formRoute.Text = "Маршрут " + GetCurrentDataGridView().CurrentRow.Cells[0].Value;
+            formRoute.ShowDialog();
+        }
 
+        private DataGridView GetCurrentDataGridView()
+        {
+            if (tabControlRoutes_IPG.SelectedIndex == 0) return dataGridViewRoutes_IPG;
+            else return dataGridViewFeatures_IPG;
+        }
+        private void ToolStripMenuImages_IPG_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                if (Directory.Exists(dialog.SelectedPath))
+                {
+                    DataService.imagesFolder = dialog.SelectedPath;
+                }
+            }
+        }
+        private void buttonHelpImages_IPG_Click(object sender, EventArgs e)
+        {
+            FormGuideImage formGuideImage = new FormGuideImage();
+            formGuideImage.ShowDialog();
         }
 
         private void buttonHelp_IPG_Click(object sender, EventArgs e)
         {
-
+            FormGuide formGuide = new FormGuide();
+            formGuide.ShowDialog();
         }
 
+        #region MouseEnterTips
         private void buttonOpenFile_IPG_MouseEnter(object sender, EventArgs e)
         {
-
+            toolTip_IPG.ToolTipTitle = "Открытие";
         }
 
         private void buttonSaveFile_IPG_MouseEnter(object sender, EventArgs e)
         {
-
+            toolTip_IPG.ToolTipTitle = "Экспорт";
         }
 
         private void buttonUpdateFile_IPG_MouseEnter(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonOpenRoute_IPG_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonSetFeature_IPG_MouseEnter(object sender, EventArgs e)
-        {
-
+            toolTip_IPG.ToolTipTitle = "Обновить";
         }
 
         private void buttonHelp_IPG_MouseEnter(object sender, EventArgs e)
         {
-
+            toolTip_IPG.ToolTipTitle = "Руководство";
         }
 
+        private void textBoxSearch_IPG_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip_IPG.ToolTipTitle = "Поиск";
+        }
+
+        private void buttonOpenRoute_IPG_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip_IPG.ToolTipTitle = "Открыть";
+        }
+
+        private void buttonSetFeature_IPG_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip_IPG.ToolTipTitle = "Избранное";
+        }
         private void buttonHelpImages_IPG_MouseEnter(object sender, EventArgs e)
         {
-
+            toolTip_IPG.ToolTipTitle = "Руководство";
         }
+
+#endregion
     }
 }
 

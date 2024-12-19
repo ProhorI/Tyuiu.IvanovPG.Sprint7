@@ -10,14 +10,18 @@ using System.Windows.Forms;
 
 namespace Project.V14
 {
-    public partial class FormAbout : Form
+    public partial class FormGuide : Form
     {
-        public FormAbout()
+        public FormGuide()
         {
             InitializeComponent();
         }
+        private void textBoxGuide_IPG_Enter(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+        }
 
-        private void FormAbout_Load(object sender, EventArgs e)
+        private void pictureBoxGuide_IPG_Click(object sender, EventArgs e)
         {
 
         }

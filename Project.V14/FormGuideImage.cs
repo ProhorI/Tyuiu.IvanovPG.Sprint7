@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Project.V14
 {
-    public partial class FormAbout : Form
+    public partial class FormGuideImage : Form
     {
-        public FormAbout()
+        public FormGuideImage()
         {
             InitializeComponent();
-        }
-
-        private void FormAbout_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
