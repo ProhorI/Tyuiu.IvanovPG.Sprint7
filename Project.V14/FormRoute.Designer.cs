@@ -68,7 +68,7 @@
             groupBoxRouteDescription_IPG.Size = new Size(483, 709);
             groupBoxRouteDescription_IPG.TabIndex = 0;
             groupBoxRouteDescription_IPG.TabStop = false;
-            groupBoxRouteDescription_IPG.Text = "Описание";
+            groupBoxRouteDescription_IPG.Text = "Описание маршрутов ";
             // 
             // textBoxRouteType_IPG
             // 
@@ -118,7 +118,7 @@
             groupBox2.Size = new Size(400, 200);
             groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Время";
+            groupBox2.Text = "Время в пути ";
             // 
             // textBoxRouteTime_IPG
             // 
@@ -155,7 +155,7 @@
             groupBoxRouteList_IPG.Size = new Size(491, 526);
             groupBoxRouteList_IPG.TabIndex = 0;
             groupBoxRouteList_IPG.TabStop = false;
-            groupBoxRouteList_IPG.Text = "Остановки";
+            groupBoxRouteList_IPG.Text = "Остановки города";
             // 
             // flowLayoutPanel_IPG
             // 
@@ -173,6 +173,7 @@
             Controls.Add(panelRouteStops_IPG);
             Controls.Add(panelRouteDescription_IPG);
             Name = "FormRoute";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Транспортные маршруты";
             Load += FormRoute_Load;
             panelRouteDescription_IPG.ResumeLayout(false);

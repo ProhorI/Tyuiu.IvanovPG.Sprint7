@@ -1,6 +1,9 @@
 using Tyuiu.IvanovPG.Sprint7.Task0.V14.Lib;
 using System.IO;
 using System.Windows.Forms;
+using System.Reflection.Emit;
+using static System.Windows.Forms.DataFormats;
+using System.Text;
 
 namespace Project.V14
 {
@@ -112,35 +115,62 @@ namespace Project.V14
 
         private void buttonSaveFile_IPG_Click(object sender, EventArgs e)
         {
-            saveFileDialog_IPG.FileName = "file.csv";
-            saveFileDialog_IPG.InitialDirectory = Directory.GetCurrentDirectory();
-            saveFileDialog_IPG.ShowDialog();
-
-            string path = saveFileDialog_IPG.FileName;
-
-            FileInfo fileInfo = new FileInfo(path);
-            if (fileInfo.Exists)
+            try
             {
-                File.Delete(path);
-            }
+                saveFileDialog_IPG.FileName = "file.csv";
+                saveFileDialog_IPG.InitialDirectory = Directory.GetCurrentDirectory();
+                DialogResult dialogResult = saveFileDialog_IPG.ShowDialog();
 
-            string str = "";
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < COLUMNS; j++)
+                string path = saveFileDialog_IPG.FileName;
+
+                // Проверяем, был ли выбран файл
+                if (dialogResult != DialogResult.OK || string.IsNullOrWhiteSpace(path))
                 {
-                    if (j != COLUMNS - 1)
-                    {
-                        str += dataGridViewRoutes_IPG.Rows[i].Cells[j].Value + ";";
-                    }
-                    else
-                    {
-                        str += dataGridViewRoutes_IPG.Rows[i].Cells[j].Value;
-                    }
+                    return; // Выход из метода, если файл не выбран
                 }
-                File.AppendAllText(path, str + Environment.NewLine);
-                str = "";
+
+                // Удаляем файл, если он существует
+                FileInfo fileInfo = new FileInfo(path);
+                if (fileInfo.Exists)
+                {
+                    File.Delete(path);
+                }
+
+                // Получаем количество строк и колонок
+                int rows = dataGridViewRoutes_IPG.RowCount;
+                int COLUMNS = dataGridViewRoutes_IPG.ColumnCount;
+
+                StringBuilder sb = new StringBuilder();
+
+                // Проходим по всем строкам
+                for (int i = 0; i < rows; i++)
+                {
+                    if (dataGridViewRoutes_IPG.Rows[i].IsNewRow) continue; // Пропускаем новую строку
+
+                    for (int j = 0; j < COLUMNS; j++)
+                    {
+                        var cellValue = dataGridViewRoutes_IPG.Rows[i].Cells[j].Value;
+                        sb.Append(cellValue != null ? cellValue.ToString() : ""); // Проверяем на null
+                        if (j != COLUMNS - 1) sb.Append(";");
+                    }
+                    sb.AppendLine();
+                }
+
+                // Сохраняем всё в файл
+                File.WriteAllText(path, sb.ToString(),Encoding.UTF8);
             }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("Ошибка индекса: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Произошла ошибка: " + ex.Message);
+            }
+            //catch
+            //{
+            //    MessageBox.Show("Введены неверные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void buttonUpdateFile_IPG_Click(object sender, EventArgs e)
@@ -259,7 +289,7 @@ namespace Project.V14
         #region MouseEnterTips
         private void buttonOpenFile_IPG_MouseEnter(object sender, EventArgs e)
         {
-            toolTip_IPG.ToolTipTitle = "Открытие";
+            toolTip_IPG.ToolTipTitle = "Открыть";
         }
 
         private void buttonSaveFile_IPG_MouseEnter(object sender, EventArgs e)
@@ -296,7 +326,19 @@ namespace Project.V14
             toolTip_IPG.ToolTipTitle = "Руководство";
         }
 
-#endregion
+        #endregion
+
+        private void FormMain_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonHol_IPG_Click(object sender, EventArgs e)
+        {
+            FormHoliday form2 = new Form2();
+            form2.Show();
+            MessageBox.Show("Кнопка нажата, и вывело сообщение!");
+        }
     }
 }
 

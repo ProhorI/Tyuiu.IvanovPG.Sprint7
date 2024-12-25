@@ -48,6 +48,7 @@
             buttonHelp_IPG = new Button();
             buttonHelpImages_IPG = new Button();
             labelRowFocusIndex_IPG = new Label();
+            buttonHol_IPG = new Button();
             miniToolStrip = new ToolStrip();
             menuStrip_IPG = new MenuStrip();
             ToolStripMenuItemProgramm_IPG = new ToolStripMenuItem();
@@ -60,7 +61,6 @@
             ToolStripMenuSaveFile_IPG = new ToolStripMenuItem();
             ToolStripMenuRefresh_IPG = new ToolStripMenuItem();
             ToolStripMenuOpenFile_IPG = new ToolStripMenuItem();
-            открытьНовыйФайлToolStripMenuItem = new ToolStripMenuItem();
             tabControlRoutes_IPG = new TabControl();
             tabPage1 = new TabPage();
             dataGridViewRoutes_IPG = new DataGridView();
@@ -99,6 +99,7 @@
             flowLayoutPanel1.Controls.Add(groupBoxFile_IPG);
             flowLayoutPanel1.Controls.Add(groupBoxEdit_IPG);
             flowLayoutPanel1.Controls.Add(groupBox1);
+            flowLayoutPanel1.Controls.Add(buttonHol_IPG);
             flowLayoutPanel1.Location = new Point(3, 53);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(595, 1010);
@@ -142,7 +143,7 @@
             groupBoxFile_IPG.Size = new Size(558, 200);
             groupBoxFile_IPG.TabIndex = 1;
             groupBoxFile_IPG.TabStop = false;
-            groupBoxFile_IPG.Text = "Файл";
+            groupBoxFile_IPG.Text = "Файлы для работы с проектом";
             // 
             // buttonSaveFile_IPG
             // 
@@ -186,7 +187,7 @@
             groupBoxEdit_IPG.Size = new Size(558, 200);
             groupBoxEdit_IPG.TabIndex = 2;
             groupBoxEdit_IPG.TabStop = false;
-            groupBoxEdit_IPG.Text = "Работа с маршрутами";
+            groupBoxEdit_IPG.Text = "Работа с маршрутами и картами";
             // 
             // buttonOpenRoute_IPG
             // 
@@ -220,7 +221,7 @@
             groupBox1.Size = new Size(558, 200);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Руководство";
+            groupBox1.Text = "Руководство пользователя";
             // 
             // buttonHelp_IPG
             // 
@@ -252,6 +253,17 @@
             labelRowFocusIndex_IPG.Size = new Size(0, 32);
             labelRowFocusIndex_IPG.TabIndex = 4;
             // 
+            // buttonHol_IPG
+            // 
+            buttonHol_IPG.BackColor = Color.FromArgb(255, 255, 128);
+            buttonHol_IPG.Location = new Point(3, 773);
+            buttonHol_IPG.Name = "buttonHol_IPG";
+            buttonHol_IPG.Size = new Size(597, 237);
+            buttonHol_IPG.TabIndex = 4;
+            buttonHol_IPG.Text = "ПОЗДРАВЛЕНИЯ";
+            buttonHol_IPG.UseVisualStyleBackColor = false;
+            buttonHol_IPG.Click += buttonHol_IPG_Click;
+            // 
             // miniToolStrip
             // 
             miniToolStrip.AccessibleName = "New item selection";
@@ -272,7 +284,7 @@
             menuStrip_IPG.Items.AddRange(new ToolStripItem[] { ToolStripMenuItemProgramm_IPG, ToolStripMenuItemFile_IPG });
             menuStrip_IPG.Location = new Point(0, 0);
             menuStrip_IPG.Name = "menuStrip_IPG";
-            menuStrip_IPG.Size = new Size(603, 42);
+            menuStrip_IPG.Size = new Size(603, 40);
             menuStrip_IPG.TabIndex = 3;
             menuStrip_IPG.Text = "menuStrip1";
             // 
@@ -280,28 +292,28 @@
             // 
             ToolStripMenuItemProgramm_IPG.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuAbout_IPG, ToolStripMenuExit_IPG });
             ToolStripMenuItemProgramm_IPG.Name = "ToolStripMenuItemProgramm_IPG";
-            ToolStripMenuItemProgramm_IPG.Size = new Size(160, 38);
+            ToolStripMenuItemProgramm_IPG.Size = new Size(160, 36);
             ToolStripMenuItemProgramm_IPG.Text = "Программа";
             // 
             // ToolStripMenuAbout_IPG
             // 
             ToolStripMenuAbout_IPG.Name = "ToolStripMenuAbout_IPG";
-            ToolStripMenuAbout_IPG.Size = new Size(359, 44);
+            ToolStripMenuAbout_IPG.Size = new Size(299, 44);
             ToolStripMenuAbout_IPG.Text = "О Программе";
             ToolStripMenuAbout_IPG.Click += ToolStripMenuAbout_IPG_Click;
             // 
             // ToolStripMenuExit_IPG
             // 
             ToolStripMenuExit_IPG.Name = "ToolStripMenuExit_IPG";
-            ToolStripMenuExit_IPG.Size = new Size(359, 44);
+            ToolStripMenuExit_IPG.Size = new Size(299, 44);
             ToolStripMenuExit_IPG.Text = "Выход";
             ToolStripMenuExit_IPG.Click += ToolStripMenuExit_IPG_Click;
             // 
             // ToolStripMenuItemFile_IPG
             // 
-            ToolStripMenuItemFile_IPG.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuOpenNewFileTool_IPG, ToolStripMenuSaveFile_IPG, ToolStripMenuRefresh_IPG, ToolStripMenuOpenFile_IPG, открытьНовыйФайлToolStripMenuItem });
+            ToolStripMenuItemFile_IPG.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuOpenNewFileTool_IPG, ToolStripMenuSaveFile_IPG, ToolStripMenuRefresh_IPG, ToolStripMenuOpenFile_IPG });
             ToolStripMenuItemFile_IPG.Name = "ToolStripMenuItemFile_IPG";
-            ToolStripMenuItemFile_IPG.Size = new Size(90, 38);
+            ToolStripMenuItemFile_IPG.Size = new Size(90, 36);
             ToolStripMenuItemFile_IPG.Text = "Файл";
             // 
             // ToolStripMenuOpenNewFileTool_IPG
@@ -346,12 +358,6 @@
             ToolStripMenuOpenFile_IPG.Size = new Size(393, 44);
             ToolStripMenuOpenFile_IPG.Text = "Открыть данный файл";
             ToolStripMenuOpenFile_IPG.Click += ToolStripMenuOpenFile_IPG_Click;
-            // 
-            // открытьНовыйФайлToolStripMenuItem
-            // 
-            открытьНовыйФайлToolStripMenuItem.Name = "открытьНовыйФайлToolStripMenuItem";
-            открытьНовыйФайлToolStripMenuItem.Size = new Size(393, 44);
-            открытьНовыйФайлToolStripMenuItem.Text = "Открыть новый файл";
             // 
             // tabControlRoutes_IPG
             // 
@@ -411,7 +417,7 @@
             // 
             // Column4
             // 
-            Column4.HeaderText = "Тип";
+            Column4.HeaderText = "Тип транспорта";
             Column4.MinimumWidth = 10;
             Column4.Name = "Column4";
             Column4.Width = 200;
@@ -488,11 +494,14 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1891, 1096);
             Controls.Add(tableLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip_IPG;
             Name = "FormMain";
             Text = "Транспортные маршруты ";
+            Load += FormMain_Load_1;
             flowLayoutPanel1.ResumeLayout(false);
             groupBoxSearch_IPG.ResumeLayout(false);
             groupBoxSearch_IPG.PerformLayout();
@@ -543,10 +552,6 @@
         private TabControl tabControlRoutes_IPG;
         private TabPage tabPage1;
         private DataGridView dataGridViewRoutes_IPG;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
         private TabPage tabPage2;
         private DataGridView dataGridViewFeatures_IPG;
         private DataGridViewTextBoxColumn Column5;
@@ -557,6 +562,10 @@
         private Label labelRowFocusIndex_IPG;
         private ToolStripMenuItem ToolStripMenuOpenNewFile_IPG;
         private ToolStripMenuItem ToolStripMenuImages_IPG;
-        private ToolStripMenuItem открытьНовыйФайлToolStripMenuItem;
+        private Button buttonHol_IPG;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
     }
 }

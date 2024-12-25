@@ -10,19 +10,16 @@ using System.Windows.Forms;
 
 namespace Project.V14
 {
-    public partial class FormAbout : Form
+    public partial class FormHoliday : Form
     {
-        public FormAbout()
+        public FormHoliday()
         {
             InitializeComponent();
         }
 
-        private void FormAbout_Load(object sender, EventArgs e)
+        private void FormHoliday_Load(object sender, EventArgs e)
         {
-            this.BeginInvoke(new Action(() =>
-            {
-                ActiveControl = null;
-            }));
+
         }
     }
 }

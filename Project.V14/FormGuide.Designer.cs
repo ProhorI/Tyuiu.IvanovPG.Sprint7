@@ -76,6 +76,7 @@
             Controls.Add(groupBox1);
             Controls.Add(pictureBoxGuide_IPG);
             Name = "FormGuide";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Транспортные маршруты";
             ((System.ComponentModel.ISupportInitialize)pictureBoxGuide_IPG).EndInit();
             groupBox1.ResumeLayout(false);
